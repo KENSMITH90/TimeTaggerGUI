@@ -585,7 +585,7 @@ class Ui_MainWindow(object):
         print(error_message)
     
     def press_show(self):
-        count_rate = TimeTagger.Countrate(self.click_channel_entry.text())
+        count_rate = TimeTagger.Countrate(self.click_channel)
         self.count_rate_entry.setText(count_rate)
 
     def retranslateUi(self, MainWindow):
