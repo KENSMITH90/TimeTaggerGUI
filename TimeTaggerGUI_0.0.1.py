@@ -193,6 +193,7 @@ class Ui_MainWindow(object):
         self.show_button = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_show())
         self.show_button.setGeometry(QtCore.QRect(630, 150, 93, 28))
         self.show_button.setObjectName("show_button")
+        self.show_button.setEnabled(False)
 
 
         # create a layout form
@@ -328,7 +329,9 @@ class Ui_MainWindow(object):
         tagger.setTriggerLevel(click, 1.1)
         # Sets the dead_time of the input channel to 24000 ps
         tagger.setDeadtime(1, 6000)
-
+        
+        self.show_button.setEnabled(True)
+        
         width = self.bin_width
         bin_number = self.bin_num
         int_time = 3e13                 # how do we want to define this integration time ? 3e13 is an example case
@@ -585,7 +588,7 @@ class Ui_MainWindow(object):
         print(error_message)
     
     def press_show(self):
-        count_rate = TimeTagger.Countrate(self.click_channel_entry.text())
+        count_rate = TimeTagger.Countrate(self.click_channel)
         self.count_rate_entry.setText(count_rate)
 
     def retranslateUi(self, MainWindow):
