@@ -329,6 +329,8 @@ class Ui_MainWindow(object):
         # Sets the dead_time of the input channel to 24000 ps
         tagger.setDeadtime(1, 6000)
 
+        self.show_button.setEnabled(True)
+        
         width = self.bin_width
         bin_number = self.bin_num
         int_time = 3e13                 # how do we want to define this integration time ? 3e13 is an example case
@@ -585,6 +587,7 @@ class Ui_MainWindow(object):
         print(error_message)
     
     def press_show(self):
+        self.show_button.setEnabled(False)
         count_rate = TimeTagger.Countrate(self.click_channel_entry.text())
         self.count_rate_entry.setText(count_rate)
 
