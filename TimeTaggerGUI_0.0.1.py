@@ -193,6 +193,7 @@ class Ui_MainWindow(object):
         self.show_button = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_show())
         self.show_button.setGeometry(QtCore.QRect(630, 150, 93, 28))
         self.show_button.setObjectName("show_button")
+        self.show_button.setEnabled(False)
 
 
         # create a layout form
@@ -337,7 +338,9 @@ class Ui_MainWindow(object):
         trigger = tagger.getTriggerLevel(1)
         serial = tagger.getSerial()
         model = tagger.getModel()
-
+        
+        self.show_button.setEnabled(True)
+        
         # create message box promoting information about this experiment
         exp_info_message = QMessageBox()
         exp_info_message.setWindowTitle("Trail Information")
